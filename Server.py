@@ -9,7 +9,7 @@ def server():
     mySocket.bind((host,port))
 
     mySocket.listen(1)
-
+    print("Listening for incoming connections")
     conn,addr = mySocket.accept()
 
 
@@ -44,6 +44,7 @@ def helpFunction():
     print("Command: remove Usage: Removes a file. Example: remove somefile.txt\n")
     print("Command: makedirs Usage: Make new directories note that the path starts from your current working directory. Example: makedirs /makeafolder/andanotherinside .\n")
     print("Command: create Usage: Creates a new file. Example create newfile.txt\n")
+    print("Command: execute Usage: Executes a file(note that in linux you can only excecute python scripts). \n")
     print("Command: read Usage: Read a file. Example read newfile.txt\n")
     print("Command: write Usage: Write text to a given file !note that you must choose the file and then send the data. Example: write myfile.txt send it and then write the text you want written.\n")
     print("Command: browser Usage: Opens a given URL using the browser. Example: broswer www.youtube.com\n")
@@ -52,3 +53,14 @@ def helpFunction():
     
 if __name__ == "__main__":
     server()
+
+
+
+
+
+
+
+
+
+
+
