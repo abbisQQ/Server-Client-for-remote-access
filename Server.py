@@ -1,7 +1,7 @@
-import socket, argparse
+import socket
 
 def server():
-    host = "127.0.0.1"
+    host = "0.0.0.0" #listen at all interfaces
     port = 5000
     
     mySocket = socket.socket()
@@ -25,9 +25,10 @@ def server():
             conn.send(sending_message.encode())
             received_message = conn.recv(4096).decode()
             print(received_message)
-            sending_message = input("say something boss: ")
+            sending_message = input("Say something boss: ")
        
     conn.close()
+    print("Server shut down...")
 
 
 
@@ -53,14 +54,3 @@ def helpFunction():
     
 if __name__ == "__main__":
     server()
-
-
-
-
-
-
-
-
-
-
-
