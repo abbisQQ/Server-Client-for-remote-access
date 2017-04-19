@@ -196,6 +196,7 @@ def executeFile(mySocket,receiving_message):
 
 
     
+# note that this works on windows only   
 def openURL(mySocket,receiving_message):
     # open given url in google chrome broswer, using subprocess module
     # first pass browser location and then the url you want to open
@@ -203,13 +204,12 @@ def openURL(mySocket,receiving_message):
     sending_message = "broswer opened"
     mySocket.send(sending_message.encode())
 
-
+# note that this works on windows only   
 def killTheBrowser(mySocket):
     #killing the open browser
-    p.kill()
+    os.system("taskkill /f /im "+ "chrome.exe")
     sending_message = "broswer killed"
     mySocket.send(sending_message.encode())
-            
 
 
 
