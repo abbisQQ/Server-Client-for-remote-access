@@ -7,7 +7,7 @@ import time #Using time module to retry connection every 1 minute.
 def client():
 
     #Creating the socket passing the ip and port as parameters and trying to connect
-    host = "127.0.0.1"
+    host = "127.0.0.1"#i use localhost but in general you want the client-computer's internal ip here
     port = 5000
     mySocket = socket.socket()
     mySocket.connect((host,port))
@@ -208,7 +208,7 @@ def openURL(mySocket,receiving_message):
 def killTheBrowser(mySocket):
     #killing the open browser
     os.system("taskkill /f /im "+ "chrome.exe")
-    sending_message = "broswer killed"
+    sending_message = "browser killed"
     mySocket.send(sending_message.encode())
 
 
