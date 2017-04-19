@@ -8,7 +8,7 @@ def server():
     mySocket.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR, 1)
     mySocket.bind((host,port))
 
-    mySocket.listen(1)
+    mySocket.listen(1)#only 1 client can connect
     print("Listening for incoming connections")
     conn,addr = mySocket.accept()
 
