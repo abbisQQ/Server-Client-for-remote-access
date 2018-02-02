@@ -1,5 +1,5 @@
 # Server-client-for-remote-acces
-A server client project which i made with python 3 both for demonstration perposes and to remote some task in my desktop while i am using my laptop .
+A server client project which i made with python 3 both for demonstration purposes and to remote some task in my desktop while i am using my laptop .
 In sort you can:
                 get the current working directory
                 change directories and move around
