@@ -38,7 +38,7 @@ def helpFunction():
     print("Welcome to Server-Client program made by C.Theodorou in April 2017.")
     print("This is the help function made to help you in order to remote any machine in you local network. \n\n")
     print("Command: getcwd  Usage: Prints the current working directory.\n")
-    print("Command: chdir  Usage: Changes the working directory. Example: chdir /home/somefile/someotherfile.\n")
+    print("Command: chdir  Usage: Changes the working directory. Example: chdir /home/somefolder/someotherfolder.\n")
     print("Command: listdir  Usage: List of all files and folders inside the working directory. Example: listdir .\n")
     print("Command: shutdown  Usage: Shut down or Restart the computer in 1 min. Example: shutdown -s or shutdown -r .\n")
     print("Command: removedirs  Usage: Removes the whole directory. Example: removedirs /home/somefolder/someotherfolder.\n")
